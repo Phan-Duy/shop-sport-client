@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/validate.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .form-field.invalid  .form-input{
+        border-color: rgb(203, 203, 48);
+        background-color: yellow;
+      }
+
+      .form-group.invalid  {
+        border-color: rgb(203, 203, 48);
+        background-color: yellow;
+      }
+
+      .form-group.invalid  .form-control{
+        border-color: rgb(203, 203, 48);
+        background-color: yellow;
+      }
+
+      .form-field.invalid  .form-control{
+        border-color: rgb(203, 203, 48);
+        background-color: yellow;
+      }
+
+      .form-message {
+        color: #f33a58;
+      }
+
+
+      /* .form-field.invalid .form-input {
+         border-color: yellow;
+      } */
+      /* .form-input:hover {
+         border-color: #1dbfaf;
+      } */
+
+      
+
+
+    </style>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container__banner"></div>
+      <div class="container__login">
+        <div class="login-form">
+          <h1>Đăng ký</h1>
+
+          <form action="" class="form" id="form-1">
+            <div class="form-field ">
+                <label for="user" class="form-label">Họ tên</label>
+              <input
+                id="user" 
+                name="user"
+                class="form-input"
+                type="text"
+                placeholder="Họ tên "
+              />
+              <span class="form-message"></span>
+            
+
+            
+            <div class="form-field ">
+                <label for="email" class="form-label">Email</label>
+              <input
+                id="email"
+                name="email"
+                class="form-input"
+                type="text"
+                placeholder="Email "
+              />
+              <span class="form-message"></span>
+            </div>
+
+            <div class="form-field ">
+              <label for="gender">Giới tính</label>
+              <div class="border form-control" id="gender">
+                <input   type="radio" name="gender" value="Nam"  > Nam
+                <input   type="radio" name="gender" value="Nữ"> Nữ
+                
+              </div>
+              <span class="form-message" ></span>
+            </div>
+            <div class="form-field ">
+              <label for="hobbies">Sở thích</label>
+              <div class="border form-control" id="hobbies" >
+                <input type="checkbox" name="hobbies[]" value="Du lịch" > Du lịch
+                <input type="checkbox" name="hobbies[]"  value="Âm nhạc" > Âm nhạc
+                <input type="checkbox" name="hobbies[]"  value="Ẩm thực" > Ẩm thực
+                <input type="checkbox" name="hobbies[]"  value="Đọc sách" > Đọc sách
+                <input type="checkbox" name="hobbies[]"  value="Khác" > Khác
+                
+              </div>
+              <span class="form-message" ></span>
+            </div>
+            <div class="form-field ">
+              <label for="nationality">Quốc tịch</label>
+              <select name="nationality" id="nationality" class="form-control" >
+                <option  value="" disabled selected>Chọn quốc tịch</option>
+                <option  value="Việt Nam">Việt Nam</option>
+                <option  value="Mỹ">Mỹ</option>
+                <option  value="Anh">Anh</option>
+                <option  value="Pháp">Pháp</option>
+                <option  value="Nhật Bản">Nhật Bản</option>
+                <option  value="Trung Quốc">Trung Quốc</option>
+              </select>
+              <span class="form-message"></span>
+            </div>
+
+
+            </div>
+            <div class="form-field ">
+                <label for="pass" class="form-label">Mật khẩu</label>
+            <input
+                id="pass"
+                name="pass"
+                class="form-input"
+                type="password"
+                placeholder="Mật khẩu "
+            />
+            <span class="form-message"></span>
+            </div>
+            <div class="form-field ">
+                <label for="pass2" class="form-label">Nhập lại mật khẩu</label>
+                <input
+                    id="pass2"
+                    name="pass2"
+                    class="form-input"
+                    type="password"
+                    placeholder="Nhập lại mật khẩu "
+                />
+                <i class="fa-regular fa-eye-slash eye-icon" data-target="confirm-password"></i>
+
+                <span class="form-message"></span>
+            </div>
+            <div class="form-field">
+              <label for="note">Ghi chú</label>
+              <textarea name="note" id="note" class="form-control"></textarea>
+              <span class="form-message" ></span>
+            </div>
+            
+
+            <button  class="btn btn-submit" id="register-btn">ĐĂNG KÝ</button>
+          </form>
+
+          <div class="login_link-register">
+            <span
+              >Bạn đã có tài khoản? <a href="login.html">Đăng nhập</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/validator.js"></script>
+
+
+
+    <script>
+
+
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mong muốn của chúng ta
+        Validator({
+          form: "#form-1",
+          formGroupSelector: ".form-field",
+          
+          errorSelector: ".form-message",
+          rules: [
+            Validator.minLength("#user", 8),
+            Validator.isRequired("#user", "Vui lòng nhập tên tài khoản"),
+            Validator.isEmail("#email"),
+            Validator.minLength("#pass", 8),
+            Validator.isPassword("#pass"),
+            
+
+            Validator.isRequired("#pass2"),
+            Validator.isRequired('input[name="gender"]', "Vui lòng chọn giới tính"),
+              Validator.isRequired('input[name="hobbies[]"]', "Vui lòng chọn sở thích"),
+              Validator.isRequired("#nationality", "Vui lòng chọn quốc tịch"),
+              Validator.maxLength('#note', 200),
+            Validator.isConfirmed(
+              "#pass2",
+              function () {
+                return document.querySelector("#form-1 #pass").value;
+              },
+              "Mật khẩu nhập lại không chính xác"
+            ),
+          ],
+        onSubmit: function (data) {
+            // Extracting form field values
+            const user = document.querySelector("#user").value;
+            const email = document.querySelector("#email").value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const hobbies = document.querySelectorAll('input[name="hobbies[]"]:checked');
+            const nationality = document.querySelector("#nationality").value;
+            const note = document.querySelector("#note").value;
+
+            // Displaying success message
+            const successMessage = `Đăng ký thành công!\nHọ tên: ${user}\nEmail: ${email}\nGiới tính: ${gender}\nSở thích: ${Array.from(hobbies).map(i => i.value).join(", ")}\nQuốc tịch: ${nationality}\nGhi chú: ${note}`;
+            alert(successMessage);
+        },
+    });
+});
+
+      
+    </script>
+  </body>
+</html>

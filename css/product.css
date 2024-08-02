@@ -1,0 +1,195 @@
+.wrapper-cart {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 24px auto !important;
+	padding: 24px;
+	border-radius: 12px;
+	width: 90%;
+	min-height: 200px;
+	/* box-shadow: 0 0 5px rgba(0, 0, 0, 0.164); */
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* CSS cho phần tử gốc */
+.select {
+	width: 250px;
+	position: relative;
+	display: inline-block;
+	background: #f4f4f4;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	overflow: hidden;
+	margin-top: 24px;
+}
+
+/* CSS cho phần tử <select> */
+.select select {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	background: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	outline: none;
+}
+
+/* CSS cho mũi tên */
+.select:after {
+	content: "\25BC";
+	position: absolute;
+	top: 0;
+	right: 10px;
+	padding: 10px;
+	pointer-events: none;
+}
+
+/* Custom Table */
+#product-list {
+	display: none;
+	font-family: "Roboto", sans-serif;
+	border-collapse: collapse;
+	/* width: 100%; */
+	min-width: 1000px;
+	margin-top: 50px;
+	border-radius: 12px;
+	font-size: 16px;
+	color: #333;
+}
+
+#product-list td,
+#product-list th {
+	border: 1px solid #ddd;
+	padding: 8px;
+	margin: 0 10px;
+	text-align: center;
+}
+
+#product-list td {
+	font-weight: bold;
+	background-color: var(--color-primary);
+	
+}
+
+#product-list td:nth-child(4) {
+	/* color: rgb(85, 0, 255); */
+	color: purple;
+}
+#product-list td:nth-child(5) {
+	color: rgb(85, 0, 255);
+}
+
+/* #product-list tr:nth-child(even) {
+	background-color: #f2f2f2;
+} */
+
+#product-list tr:hover {
+	background-color: #4286f444;
+}
+
+#product-list th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: var(--color-primary);
+	color: #333;
+	text-align: center;
+}
+#product-list td:last-child {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: var(--color-primary);
+	color: red;
+	text-align: center;
+}
+
+
+input[type="number"] {
+	outline: 0;
+	border: 0;
+	text-align: center;
+	width: 100px;
+	font-size: 16px;
+}
+
+/* CSS click image */
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+#myImg:hover {
+	opacity: 0.7;
+}
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 30px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: hidden; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+	margin: 70px auto;
+	display: block;
+	width: 80%;
+	max-width: 600px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content,
+#caption {
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+/* The Close Button */
+.close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+	.modal-content {
+		width: 100%;
+	}
+}

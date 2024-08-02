@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/css/validate.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <title>Document</title>
+
+   <style>
+      .form-field.invalid  .form-input{
+        border-color: rgb(203, 203, 48);
+        background-color: yellow;
+      }
+
+      
+
+
+      .form-message {
+        color: #f33a58;
+      }
+
+
+      /* .form-field.invalid .form-input {
+         border-color: yellow;
+      } */
+      .form-input:hover {
+         border-color: #1dbfaf;
+      }
+
+      
+
+
+    </style>
+</head>
+
+<body>
+   <div class="wrapper1">
+      <div class="container__banner">
+      </div>
+      <div class="container__login">
+         <div class="login-form">
+            <h1>Đăng nhập</h1>
+
+            <!-- <form action="" class="form" id="form-2"> -->
+            <form class="form-field " class="form" id="form-2">
+               <div class="form-field">
+                   <label class="form-label">Email</label>
+                   <input id="email" name="email" class="form-input" type="text" placeholder="Email "/>
+                  <span class="form-message"></span>
+               </div>
+               <!-- <div class="form-field">
+                   <label class="form-label">Tên tài khoản</label>
+                   <input id="user" class="form-input" type="text" placeholder=" ">
+                <span class="form-message"></span>
+             </div> -->
+               <div class="form-field">
+                   <label class="form-label">Mật khẩu</label>
+                  <input id="password" class="form-input" type="password" placeholder="Mật khẩu ">
+                  <i class="fa-regular fa-eye-slash eye-icon" data-target="confirm-password"></i>
+                  <span class="form-message"></span>
+               </div>
+               <a class="login__reset-password" href="#">Quên mật khẩu</a>
+               <button class="btn btn-submit1" id="register-btn">ĐĂNG NHẬP</button>
+            </form>
+
+            
+
+            <!-- <div class="login__space">
+               <div class="underline">
+                  <span class="space-text">Hoặc</span>
+               </div>
+            </div> -->
+
+            <div class="login__other">
+               <div class="login__facebook">
+                  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="" width="40">
+                  <!-- <span>Facebook</span> -->
+               </div>
+               <div class="login__google">
+                  <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png" alt=""
+                     width="40">
+                  <!-- <span>Google</span> -->
+               </div>
+            </div>
+
+            <div class="login_link-register">
+               <span>Bạn chưa có tài khoản? <a href="sign-up.html">Đăng ký</a></span>
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+      <script src="/js/validator.js"></script>
+
+      <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    Validator({
+        form: '#form-2',
+        formGroupSelector: '.form-field',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isEmail('#email', "Vui lòng nhập Email"),
+            Validator.minLength('#password', 8),
+            Validator.isPassword("#pass"),
+        ],
+        onSubmit: function (data) {
+            // You can customize the success message here
+            const successMessage = `Đăng nhập thành công!`;
+            alert(successMessage);
+
+            // Call API or handle login logic here
+        }
+    });
+});
+
+
+      </script>
+   
+</body>
+
+</html>
